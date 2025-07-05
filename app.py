@@ -11,7 +11,8 @@ model = joblib.load('wine_quality_model.pkl')
 scaler = joblib.load('wine_quality_scaler.pkl')
 
 st.title("Red Wine Quality Classifier 🍷")
-st.write("Input chemical attributes to predict if the wine is **Good** or **Not Good**, along with a confidence score.")
+st.write("Input chemical attributes to predict if the wine is **Good** or **Not Good**")
+
 
 # === Input fields ===
 fixed_acidity = st.number_input("Fixed Acidity", min_value=0.0, step=0.1)
