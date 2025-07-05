@@ -6,7 +6,7 @@ import joblib
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 
-# === Load model and scaler ===
+# load model and scaler
 model = joblib.load('wine_quality_model.pkl')
 scaler = joblib.load('wine_quality_scaler.pkl')
 
@@ -14,7 +14,7 @@ st.title("Red Wine Quality Classifier 🍷")
 st.write("Input chemical attributes to predict if the wine is **Good** or **Not Good**")
 
 
-# === Input fields ===
+# input fields
 fixed_acidity = st.number_input("Fixed Acidity", min_value=0.0, step=0.1)
 volatile_acidity = st.number_input("Volatile Acidity", min_value=0.0, step=0.001)
 citric_acid = st.number_input("Citric Acid", min_value=0.0, step=0.001)
@@ -27,7 +27,8 @@ pH = st.number_input("pH", min_value=0.0, step=0.01)
 sulphates = st.number_input("Sulphates", min_value=0.0, step=0.01)
 alcohol = st.number_input("Alcohol", min_value=0.0, step=0.1)
 
-# === Collect Inputs ===
+# collect input 
+
 input_data = np.array([[fixed_acidity, volatile_acidity, citric_acid, residual_sugar,
                         chlorides, free_sulfur_dioxide, total_sulfur_dioxide,
                         density, pH, sulphates, alcohol]])
