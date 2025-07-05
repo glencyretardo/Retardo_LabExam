@@ -31,8 +31,6 @@ alcohol = st.number_input("Alcohol", min_value=0.0, step=0.1)
 input_data = np.array([[fixed_acidity, volatile_acidity, citric_acid, residual_sugar,
                         chlorides, free_sulfur_dioxide, total_sulfur_dioxide,
                         density, pH, sulphates, alcohol]])
-
-# === Predict button ===
 if st.button("Predict"):
     input_scaled = scaler.transform(input_data)
     prediction = model.predict(input_scaled)[0]
@@ -41,4 +39,16 @@ if st.button("Predict"):
     result = "Good 🍷" if prediction == 1 else "Not Good ❌"
     st.success(f"Prediction: **{result}**")
     st.info(f"Confidence Score: **{confidence:.2%}**")
+
+    st.markdown("""
+    ⚠️ **Note:**
+
+    The Confidence Score shows how certain the model is about its prediction based on your inputs.
+
+    - A high score (close to 100%) means the model is very confident.
+    - A lower score means it is less certain.
+
+    **Important:** A high confidence score does NOT always guarantee the prediction is correct. It only shows the model's certainty based on what it learned from the training data.
+    """)
+
 
